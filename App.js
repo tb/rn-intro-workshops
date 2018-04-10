@@ -1,12 +1,25 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { Button } from 'react-native-paper'
 
 export default class App extends Component {
+  static navigationOptions = {
+    title: 'Main',
+  }
+
+  navigateTo = name => () =>
+    this.props.navigation.navigate(name)
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
+        <Button onPress={this.navigateTo('flatList')} primary raised={true}>
+          FlatList
+        </Button>
+
+        <Button onPress={this.navigateTo('sectionList')} primary raised={true}>
+          SectionList
+        </Button>
       </View>
     )
   }
@@ -14,13 +27,9 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 50,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
   },
 })

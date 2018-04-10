@@ -1,7 +1,7 @@
 import React from 'react'
 import { AppRegistry } from 'react-native'
 import { Text, DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
-import App from './App'
+import Navigator from './Navigator'
 
 Text.defaultProps = {
   allowFontScaling: false,
@@ -18,7 +18,7 @@ const theme = {
 
 const Main = () => (
   <PaperProvider theme={theme}>
-    <App />
+    <Navigator />
   </PaperProvider>
 )
 
